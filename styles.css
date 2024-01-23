@@ -1,0 +1,110 @@
+/* Estilos generales */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+/* Tema claro */
+body.light-theme {
+    --color-header: #e0e0e0;
+    --color-background: #eeeeee;
+    --color-panel: #fafafa;
+    --color-button-default: #e0e0e0;
+    --color-button-default-hover: #bdbdbd;
+    --color-text: #424242;
+    --color-title-panel: rgb(33 33 33 / 80%);
+    --color-title-control: rgb(33 33 33 / 70%);
+    --border-radius: 3px;
+}
+
+/* Tema oscuro */
+body.dark-theme {
+    --color-header: #333;
+    --color-background: #222;
+    --color-panel: #1a1a1a;
+    --color-button-default: #444;
+    --color-button-default-hover: #666;
+    --color-text: #fff;
+    --color-title-panel: rgb(255 255 255 / 80%);
+    --color-title-control: rgb(255 255 255 / 70%);
+    --border-radius: 3px;
+}
+
+/* Estilos de la cabecera */
+.app-header {
+    background-color:var(--color-header);
+    color:var(--color-text);
+    text-align: center;
+    padding: 20px;
+}
+
+.app-title {
+    margin: 0;
+    font-size: 36px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Estilos de los botones */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color:var(--color-text);
+    background-color:var(--color-button-default); /* Color de fondo predeterminado para los botones */
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+.button:hover {
+    background-color: var(--color-button-default-hover); /* Cambio de color al pasar el ratón sobre los botones */
+    opacity: 0.8;
+}
+
+/* Estilos del botón de alternancia de tema */
+.button-theme {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color:var(--color-text);
+    background-color: var(--color-button-default); /* Color de fondo predeterminado para el botón de tema */
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+.button-theme:hover {
+    background-color:var(--color-button-default-hover); /* Cambio de color al pasar el ratón sobre el botón de tema */
+    opacity: 0.8;
+}
+
+/* Iconos */
+.button-icon {
+    margin-right: 5px;
+}
+/* Estilos del cuerpo según el tema */
+body.light-theme {
+    background-color: var(--color-background); /* Fondo para el tema claro */
+    color: var(--color-text); /* Color de texto para el tema claro */
+}
+
+body.dark-theme {
+    background-color: var(--color-background); /* Fondo para el tema oscuro */
+    color: var(--color-text); /* Color de texto para el tema oscuro */
+}
+
+
+
