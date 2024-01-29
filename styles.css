@@ -107,6 +107,11 @@ body.dark-theme {
     margin-right: 5px;
     display:flex
 }
+.fa-file-image{
+    margin-right: 5px;
+    display: flex;
+}
+
 /* Estilos del cuerpo según el tema */
 body.light-theme {
     background-color: var(--color-background); /* Fondo para el tema claro */
@@ -255,6 +260,7 @@ h1,p {
     background-color: var(--color-button-default-hover);
     opacity: 0.8;
 }
+
 
 
 
