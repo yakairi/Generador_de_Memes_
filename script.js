@@ -1,8 +1,16 @@
 // Función para cambiar entre el modo claro y oscuro
 const toggleTheme = () => {
     const body = document.body;
-    body.classList.toggle("light-theme");
-    body.classList.toggle("dark-theme");
+
+    if (body.classList.contains("light-theme")) {
+        body.classList.remove("light-theme");
+        body.classList.add("dark-theme");
+        document.getElementById('theme-toggle-button').textContent = 'Modo claro';
+    } else {
+        body.classList.remove("dark-theme");
+        body.classList.add("light-theme");
+        document.getElementById('theme-toggle-button').textContent = 'Modo oscuro';
+    }
 };
 
 // Función para descargar el meme
