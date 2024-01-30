@@ -46,8 +46,9 @@
         <button class="panel-close-button" id="panel-close-button" aria-label="Cerrar panel">
           <i class="fas fa-times" aria-hidden="true"></i>
         </button>
+        <button class="panel-open-button" id="panel-open-button" aria-label="Abrir panel"></button>
         <!--imagen ediccion-->
-        <form class="panel-section" id="image-panel-form">
+        <form class="panel-section" id="image-edit-form">
           <h2 class="panel-title">IMAGEN</h2>
             <div class="panel-control">
                 <h3 class="panel-control-title">URL</h3>
@@ -56,7 +57,7 @@
             <div class="panel-control">
                 <h3 class="panel-control-title">FONDO</h3>
                 <input aria-label="Color de fondo de imagen" type="color" id="blend-mode-color-input" value="#FFFFFF">
-                <span id="blend-mode-color">#FFFFFF</span>
+                <span id="blend-mode-color"></span>
                 <select aria-label="Modo de mezcla de fondo de imagen" id="blend-mode-select" class="panel-control-input">
                 <option value="unset">Ninguno</option>
                 <option value="lighten">Aclarar</option>
@@ -67,7 +68,7 @@
                 </select>
             </div>
 
-            <div class="panel-control"> value="1" step="0.1">
+            <div class="panel-control">
                 </div>
                 <div class="panel-control-slider">
                     <label for="contrast-slider">CONTRASTE</label>
@@ -102,7 +103,7 @@
             </div>
         </form>
         <!--texto edicion-->
-        <form class="panel-section" id="text-panel-form">
+        <form class="panel-section" id="text-edit-form">
           <h2 class="panel-title">TEXTO</h2>
             <div class="panel-control">
                 <h3 class="panel-control-title">SUPERIOR</h3>
@@ -154,15 +155,15 @@
                             <h3 class="panel-control-title">COLOR</h3>
                             <div class="panel-control-color">
                             <input name="Color de texto" type="color" id="text-color-input" value="#000000" aria-label="Color de texto" />
-                            <span id="text-color" aria-hidden="true">#000000</span>
+                            <span id="text-color" aria-hidden="true"></span>
                             </div>
                     </div>
                    
                     <div class="panel-control panel-control-column">
                         <h3 class="panel-control-title">FONDO</h3>
                         <div class="panel-control-color">
-                            <input name="Color de fondo de texto" type="color" id="text-background-color-input" value="#FFFFFF" aria-label="Color de fondo de texto" />
-                            <span id="text-background-color" aria-hidden="true">#FFFFFF</span>
+                            <input name="Color de fondo de texto" type="color" id="text-background-color-input" value= #FFFFFF aria-label="Color de fondo de texto" />
+                            <span id="text-background-color" aria-hidden="true"></span>
                         </div>
                     </div>
                 </div>

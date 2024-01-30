@@ -24,6 +24,23 @@ const showFormText = () => {
     document.getElementById('text-panel-form"').classList.remove('oculto');
 };
 
+// Función para abrir/cerrar el panel lateral
+ const togglePanel = () => {
+    const panel = document.getElementById('panel');
+    if (panel.classList.contains('open')) {
+        panel.classList.remove('open');
+    } else {
+        panel.classList.add('open');
+    }
+};
+// Función para cerrar el panel
+const closePanel = () => {
+    const panel = document.getElementById('panel');
+    panel.classList.remove('open');
+}; 
+
+
+
 const downloadMeme = () => {
     const memeImage = document.getElementById('meme-image');
     const memeUrl = memeImage.src; // Obtener la URL de la imagen del meme
@@ -37,20 +54,11 @@ const downloadMeme = () => {
     link.click();
 };
 
- // Función para abrir/cerrar el panel lateral
- const togglePanel = () => {
-    const panel = document.getElementById('panel');
-    if (panel.classList.contains('open')) {
-        panel.classList.remove('open');
-    } else {
-        panel.classList.add('open');
-    }
-};
+ 
 
 
-
-// Función para restablecer los filtros en el panel lateral
-const resetFilters = () => {
+//* / Función para restablecer los filtros en el panel lateral
+/* const resetFilters = () => {
     document.getElementById('brightness').value = 1;
     document.getElementById('opacity').value = 1;
     document.getElementById('contrast').value = 100;
@@ -111,23 +119,25 @@ const applyImageFilters = () => {
 const resetImageFilters = () => {
     const memeImageElement = document.getElementById('meme-image');
 
-    memeImageElement.style.filter = 'none';
+    memeImageElement.style.filter = 'none'; 
 
     // También puedes restablecer los valores de los controles deslizantes aquí si es necesario
-};
+};*/
 
 // Asigna las funciones a los eventos correspondientes
 document.getElementById('theme-toggle-button').addEventListener('click', toggleTheme);
 document.getElementById('download-btn').addEventListener('click', downloadMeme);
-document.getElementById('image-panel-button').addEventListener('click', togglePanel);
-document.getElementById('close-aside').addEventListener('click', togglePanel);
-document.getElementById('reset-btn').addEventListener('click', resetFilters);
+document.getElementById('image-panel-button').addEventListener('click', togglePanel); 
+document.getElementById('text-panel-button').addEventListener('click', togglePanel)
+document.getElementById('panel-close-button').addEventListener('click',closePanel)
+/* document.getElementById('close-aside').addEventListener('click', togglePanel); */
+/* document.getElementById('reset-btn').addEventListener('click', resetFilters); */
 document.getElementById('image-upload').addEventListener('change', handleImageUpload);
-document.getElementById('apply-filters-btn').addEventListener('click', applyImageFilters);
-document.getElementById('reset-filters-btn').addEventListener('click', resetImageFilters);
-document.getElementById('image-panel-button').addEventListener('click', showFormImage);
-document.getElementById('text-panel-button"').addEventListener('click', showFormText);
-document.getElementById('panel-close-button').addEventListener('click', hiddenPanel);
-
+/* document.getElementById('apply-filters-btn').addEventListener('click', applyImageFilters); */
+/* document.getElementById('reset-filters-btn').addEventListener('click', resetImageFilters); */
+document.getElementById('image-panel-button').addEventListener('click', showPanelImage);
+document.getElementById('text-panel-button"').addEventListener('click', showPanelText);
+document.getElementById('panel-close-button').addEventListener('click', hiddenPanel );
+document.getElementById('panel-open-button').addEventListener('click', showPanel );
 
 
