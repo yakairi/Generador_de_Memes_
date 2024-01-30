@@ -14,13 +14,13 @@ const toggleTheme = () => {
 };
 // Función para mostrar el formulario de imagen y ocultar el de texto
 const showFormImage = () => {
-    document.getElementById('form-imagen').classList.remove('oculto');
-    document.getElementById('form-texto').classList.add('oculto');
+    document.getElementById('image-panel-form').classList.remove('oculto');
+    document.getElementById('text-panel-form').classList.add('oculto');
 };
 
 // Función para mostrar el formulario de texto y ocultar el de imagen
 const showFormText = () => {
-    document.getElementById('form-imagen').classList.add('oculto');
+    document.getElementById('image-panel-form').classList.add('oculto');
     document.getElementById('text-panel-form"').classList.remove('oculto');
 };
 
@@ -30,11 +30,17 @@ const descargarMeme = () => {
     alert('Descargando meme...');
 };
 
-// Función para abrir/cerrar el panel lateral
-const togglePanel = () => {
+ // Función para abrir/cerrar el panel lateral
+ const togglePanel = () => {
     const panel = document.getElementById('panel');
-    panel.classList.toggle('open');
+    if (panel.classList.contains('open')) {
+        panel.classList.remove('open');
+    } else {
+        panel.classList.add('open');
+    }
 };
+
+
 
 // Función para restablecer los filtros en el panel lateral
 const resetFilters = () => {
@@ -114,5 +120,7 @@ document.getElementById('apply-filters-btn').addEventListener('click', applyImag
 document.getElementById('reset-filters-btn').addEventListener('click', resetImageFilters);
 document.getElementById('image-panel-button').addEventListener('click', showFormImage);
 document.getElementById('text-panel-button"').addEventListener('click', showFormText);
+document.getElementById('panel-close-button').addEventListener('click', hiddenPanel);
+
 
 
