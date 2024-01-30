@@ -12,6 +12,18 @@ const toggleTheme = () => {
         document.getElementById('theme-toggle-button').textContent = 'Modo oscuro';
     }
 };
+// Función para mostrar el formulario de imagen y ocultar el de texto
+const showFormImage = () => {
+    document.getElementById('form-imagen').classList.remove('oculto');
+    document.getElementById('form-texto').classList.add('oculto');
+};
+
+// Función para mostrar el formulario de texto y ocultar el de imagen
+const showFormText = () => {
+    document.getElementById('form-imagen').classList.add('oculto');
+    document.getElementById('text-panel-form"').classList.remove('oculto');
+};
+
 
 // Función para descargar el meme
 const descargarMeme = () => {
@@ -100,5 +112,7 @@ document.getElementById('reset-btn').addEventListener('click', resetFilters);
 document.getElementById('image-upload').addEventListener('change', handleImageUpload);
 document.getElementById('apply-filters-btn').addEventListener('click', applyImageFilters);
 document.getElementById('reset-filters-btn').addEventListener('click', resetImageFilters);
+document.getElementById('image-panel-button').addEventListener('click', showFormImage);
+document.getElementById('text-panel-button"').addEventListener('click', showFormText);
 
 

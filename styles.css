@@ -260,6 +260,9 @@ h1,p {
     background-color: var(--color-button-default-hover);
     opacity: 0.8;
 }
+.oculto{
+    display: none;
+}
 
 
 
