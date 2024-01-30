@@ -24,10 +24,17 @@ const showFormText = () => {
     document.getElementById('text-panel-form"').classList.remove('oculto');
 };
 
+const downloadMeme = () => {
+    const memeImage = document.getElementById('meme-image');
+    const memeUrl = memeImage.src; // Obtener la URL de la imagen del meme
 
-// Función para descargar el meme
-const descargarMeme = () => {
-    alert('Descargando meme...');
+    // Crear un enlace <a> temporal
+    const link = document.createElement('a');
+    link.href = memeUrl;
+    link.download = 'meme.jpg'; // Nombre del archivo a descargar
+
+    // Simular clic en el enlace para iniciar la descarga
+    link.click();
 };
 
  // Función para abrir/cerrar el panel lateral
@@ -111,7 +118,7 @@ const resetImageFilters = () => {
 
 // Asigna las funciones a los eventos correspondientes
 document.getElementById('theme-toggle-button').addEventListener('click', toggleTheme);
-document.getElementById('download-btn').addEventListener('click', descargarMeme);
+document.getElementById('download-btn').addEventListener('click', downloadMeme);
 document.getElementById('image-panel-button').addEventListener('click', togglePanel);
 document.getElementById('close-aside').addEventListener('click', togglePanel);
 document.getElementById('reset-btn').addEventListener('click', resetFilters);
