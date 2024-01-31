@@ -53,7 +53,7 @@ const downloadMeme = () => {
 };  
 
 
-/*// Función para cargar una imagen desde una URL
+// Función para cargar una imagen desde una URL
 const loadImageFromUrl = () => {
     const imageUrl = document.getElementById('url-img-input').value;
     document.getElementById('meme-image').style.backgroundImage = `url('${imageUrl}')`;
@@ -72,7 +72,7 @@ const updateBottomText = () => {
 };
 
 
-//función para manejar la carga de la imagen
+/*//función para manejar la carga de la imagen
 const handleImageUpload = () => {
     const inputElement = document.getElementById('image-upload');
     const memeImageElement = document.getElementById('meme-image');
@@ -149,7 +149,9 @@ document.getElementById('text-panel-button').addEventListener('click', togglePan
 document.getElementById('image-panel-button').addEventListener('click', showPanelImage); 
 document.getElementById('text-panel-button').addEventListener('click', showPanelText);
 document.getElementById('panel-close-button').addEventListener('click',closePanel);
-
+document.getElementById('url-img-input').addEventListener('change', loadImageFromUrl);
+document.getElementById('top-text-input').addEventListener('input', updateTopText);
+document.getElementById('bottom-text-input').addEventListener('input', updateBottomText);
 
 /*document.getElementById('reset-btn').addEventListener('click', resetFilters);
 document.getElementById('image-upload').addEventListener('change', handleImageUpload);  
@@ -157,10 +159,10 @@ document.getElementById('apply-filters-btn').addEventListener('click', applyImag
 document.getElementById('reset-filters-btn').addEventListener('click', resetImageFilters);
 
 document.getElementById('panel-close-button').addEventListener('click', hiddePanel );
-document.getElementById('panel-open-button').addEventListener('click', showPanel );
+document.getElementById('panel-open-button').addEventListener('click', showPanel );*/
 
 document.getElementById('url-img-input').addEventListener('change', loadImageFromUrl);
 document.getElementById('top-text-input').addEventListener('input', updateTopText);
 document.getElementById('bottom-text-input').addEventListener('input', updateBottomText);
- */
+
 
