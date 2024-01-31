@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: borde-box;
+    box-sizing: border-box;
 }
 /* Estilos generales */
 body, html {
@@ -13,6 +13,22 @@ body, html {
     overflow: hidden;
 
     
+}
+
+header{
+    background-color: var(--color-header);
+}
+
+main {
+    padding: 40px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+h1,p {
+    margin: 0;
 }
 /* Tema claro */
 body.light-theme {
@@ -26,6 +42,8 @@ body.light-theme {
     --color-title-control: rgb(33 33 33 / 70%);
     --font-primary:'Open Sans', sans-serif;
     --border-radius: 3px;
+    --font:16px;
+    --font-sizes:36px;
 }
 
 /* Tema oscuro */
@@ -39,12 +57,23 @@ body.dark-theme {
     --color-title-panel: rgb(255 255 255 / 80%);
     --color-title-control: rgb(255 255 255 / 70%);
     --border-radius: 3px;
+    --font: 16px;
+    --font-sizes:36px;
+}
+
+/* Estilos del cuerpo según el tema */
+body.light-theme {
+    background-color: var(--color-background); /* Fondo para el tema claro */
+    color: var(--color-text); /* Color de texto para el tema claro */
+}
+
+body.dark-theme {
+    background-color: var(--color-background); /* Fondo para el tema oscuro */
+    color: var(--color-text); /* Color de texto para el tema oscuro */
 }
 
 /* Estilos de la cabecera */
-header{
-    background-color: var(--color-header);
-}
+
 .app-header {
     background-color:var(--color-header);
     color:var(--color-text);
@@ -54,14 +83,7 @@ header{
 
 .app-title {
     margin: 0;
-    font-size: 36px;
-}
-
-.button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
+    font-size: var(--font-sizes)
 }
 
 /* Estilos de los botones */
@@ -80,7 +102,14 @@ header{
     transition: background-color 0.3s, opacity 0.3s;
 }
 
-.button:hover {
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.button:hover, .button-theme:hover {
     background-color: var(--color-button-default-hover); /* Cambio de color al pasar el ratón sobre los botones */
     opacity: 0.8;
 }
@@ -91,18 +120,13 @@ header{
     align-items: center;
     justify-content: center;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: var(--font);
     cursor: pointer;
     border: none;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     color:var(--color-text);
     background-color: var(--color-button-default); /* Color de fondo predeterminado para el botón de tema */
     transition: background-color 0.3s, opacity 0.3s;
-}
-
-.button-theme:hover {
-    background-color:var(--color-button-default-hover); /* Cambio de color al pasar el ratón sobre el botón de tema */
-    opacity: 0.8;
 }
 
 /* Iconos */
@@ -115,61 +139,42 @@ header{
     display: flex;
 }
 
-/* Estilos del cuerpo según el tema */
-body.light-theme {
-    background-color: var(--color-background); /* Fondo para el tema claro */
-    color: var(--color-text); /* Color de texto para el tema claro */
-}
 
-body.dark-theme {
-    background-color: var(--color-background); /* Fondo para el tema oscuro */
-    color: var(--color-text); /* Color de texto para el tema oscuro */
-}
 
 /* Meme Section */
 .meme-container {
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     background-color: var(--color-background); 
-  
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
 }
 
 .meme-text-image{
     width: 100%;
     max-width: 610px;
-    height: 355px;
-    background-color: black;
+    height: 410px;
+    background-color: var(--color-background);
     position: relative;
     display: flex;
     flex-direction: column;
     
 }
 
-h1,p {
-    margin: 0;
-}
 
 .editor-container {
     display: flex;
     flex-grow: 1;
-  }
+}
 
 .meme-image {
-    width: 100%; /* Ajusta el tamaño según tus necesidades */
+    width: 100%; 
     background-size: cover;
     flex-grow: 1;
+    background-color:black ;
+    border-radius: var(--border-radius);
 
 }
+
 .meme-text{
     width: 100%;
     background: white;
@@ -179,6 +184,7 @@ h1,p {
     font-size: 20px;
     font-weight: 800;
     font-family: sans-serif;
+    border-radius: var(--border-radius);
 }
 
 .button-download{
@@ -191,28 +197,122 @@ h1,p {
 
 }
 
-/* Estilos del panel lateral */
+/* Estilos para los botones del aside */
+.panel-close-button,
+.panel-open-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+/* Estilos para el aside */
 .panel {
     position: fixed;
     top: 0;
-    right: -300px;
-    height: 100%;
-    width: 300px;
-    background-color: var(--color-panel);
-    transition: right 0.3s ease-in-out;
-    overflow-y: auto;
+    bottom: 0;
+    right: -500px; /* Inicialmente oculto hacia la derecha */
+    width: 400px;
+    background-color:var(--color-background);
+    padding: 20px;
+    transition: right 0.3s ease; /* Transición suave al abrir/cerrar */
+    z-index: 9999; /* Asegura que el aside esté sobre otros elementos */
+    overflow-y: auto; /* Agrega barra de desplazamiento vertical si el contenido es demasiado largo */
 }
 
 .panel.open {
     right: 0;
 }
 
-.close-aside {
-    position: absolute;
+/* Estilos para el contenido del aside */
+.panel-section {
+    margin-bottom: 40px;
+}
+
+.panel-title {
+    margin-top: 0;
+}
+
+.panel-control {
+    margin-bottom: 10px;
+}
+
+.panel-control-title {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.panel-control-input {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.panel-control-checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.panel-control-color {
+    display: flex;
+    align-items: center;
+}
+
+.panel-control-color input[type="color"] {
+    margin-right: 10px;
+}
+
+.panel-control-slider {
+    margin-bottom: 10px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Estilos para el botón de descarga */
+.button-download {
+    margin-top: 20px;
+}
+
+/* Estilos para el botón de cierre del aside */
+.panel-close-button {
     top: 10px;
     right: 10px;
+    font-size: var(--font);
+    position: absolute;
+    background: none;
+    border: none;
     cursor: pointer;
-    font-size: 24px;
+    color: #666;
+}
+
+/* Estilos para el botón de apertura del aside */
+.panel-open-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: var(--font);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    z-index: 9999;
+}
+
+
+/* .close-aside {
+    position: absolute;
+    top:  px;
+    right: 10px;
+    cursor: pointer;
+    font-size: var(--font);
     color: var(--color-text);
 }
 
@@ -221,7 +321,7 @@ h1,p {
 }
 
 .panel-column {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 .input-panel {
@@ -248,7 +348,7 @@ h1,p {
 .input-range {
     width: 100%;
     margin-bottom: 10px;
-}
+}*/
 
 .button-style {
     padding: 10px;

@@ -5,11 +5,11 @@ const toggleTheme = () => {
     if (body.classList.contains("light-theme")) {
         body.classList.remove("light-theme");
         body.classList.add("dark-theme");
-        document.getElementById('theme-toggle-button').textContent = 'Modo claro';
+        document.getElementById('theme-toggle-button').textContent = 'Modo oscuro';
     } else {
         body.classList.remove("dark-theme");
         body.classList.add("light-theme");
-        document.getElementById('theme-toggle-button').textContent = 'Modo oscuro';
+        document.getElementById('theme-toggle-button').textContent = 'Modo claro';
     }
 };
 // Función para mostrar el formulario de imagen y ocultar el de texto
@@ -40,7 +40,6 @@ const closePanel = () => {
 }; 
 
 
-
 const downloadMeme = () => {
     const memeImage = document.getElementById('meme-image');
     const memeUrl = memeImage.src; // Obtener la URL de la imagen del meme
@@ -54,21 +53,6 @@ const downloadMeme = () => {
     link.click();
 };
 
- 
-
-
-//* / Función para restablecer los filtros en el panel lateral
-/* const resetFilters = () => {
-    document.getElementById('brightness').value = 1;
-    document.getElementById('opacity').value = 1;
-    document.getElementById('contrast').value = 100;
-    document.getElementById('blur').value = 0;
-    document.getElementById('grayscale').value = 0;
-    document.getElementById('sepia').value = 0;
-    document.getElementById('hue').value = 0;
-    document.getElementById('saturate').value = 100;
-    document.getElementById('invert').value = 0;
-};
 
 // Función para manejar la carga de la imagen
 const handleImageUpload = () => {
@@ -86,6 +70,19 @@ const handleImageUpload = () => {
 
         reader.readAsDataURL(file);
     }
+};
+
+//Función para restablecer los filtros en el panel lateral
+const resetFilters = () => {
+    document.getElementById('brightness').value = 1;
+    document.getElementById('opacity').value = 1;
+    document.getElementById('contrast').value = 100;
+    document.getElementById('blur').value = 0;
+    document.getElementById('grayscale').value = 0;
+    document.getElementById('sepia').value = 0;
+    document.getElementById('hue').value = 0;
+    document.getElementById('saturate').value = 100;
+    document.getElementById('invert').value = 0;
 };
 
 // Función para aplicar filtros a la imagen
@@ -122,7 +119,7 @@ const resetImageFilters = () => {
     memeImageElement.style.filter = 'none'; 
 
     // También puedes restablecer los valores de los controles deslizantes aquí si es necesario
-};*/
+}; 
 
 // Asigna las funciones a los eventos correspondientes
 document.getElementById('theme-toggle-button').addEventListener('click', toggleTheme);
@@ -130,11 +127,10 @@ document.getElementById('download-btn').addEventListener('click', downloadMeme);
 document.getElementById('image-panel-button').addEventListener('click', togglePanel); 
 document.getElementById('text-panel-button').addEventListener('click', togglePanel)
 document.getElementById('panel-close-button').addEventListener('click',closePanel)
-/* document.getElementById('close-aside').addEventListener('click', togglePanel); */
-/* document.getElementById('reset-btn').addEventListener('click', resetFilters); */
-document.getElementById('image-upload').addEventListener('change', handleImageUpload);
-/* document.getElementById('apply-filters-btn').addEventListener('click', applyImageFilters); */
-/* document.getElementById('reset-filters-btn').addEventListener('click', resetImageFilters); */
+document.getElementById('reset-btn').addEventListener('click', resetFilters);
+document.getElementById('image-upload').addEventListener('change', handleImageUpload); 
+document.getElementById('apply-filters-btn').addEventListener('click', applyImageFilters);
+document.getElementById('reset-filters-btn').addEventListener('click', resetImageFilters); 
 document.getElementById('image-panel-button').addEventListener('click', showPanelImage);
 document.getElementById('text-panel-button"').addEventListener('click', showPanelText);
 document.getElementById('panel-close-button').addEventListener('click', hiddenPanel );
