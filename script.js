@@ -42,8 +42,15 @@ const closePanel = () => {
 
 // Función para cargar una imagen desde una URL
 const loadImageFromUrl = () => {
+    // const imageUrl = document.getElementById('url-img-input').value;
+    // document.getElementById('meme-image').style.backgroundImage = `url('${imageUrl}')`;
     const imageUrl = document.getElementById('url-img-input').value;
-    document.getElementById('meme-image').style.backgroundImage = `url('${imageUrl}')`;
+    const memeImageElement = document.getElementById('meme-image');
+
+    memeImageElement.style.backgroundImage = `url('${imageUrl}')`;
+
+    // Llamar a la función para aplicar filtros después de cargar la imagen
+    applyImageFilters();
 };
 
 // Función para actualizar el texto superior del meme
@@ -75,56 +82,57 @@ const downloadMeme = () => {
         });
 };
 
-
-/*/Función para restablecer los filtros en el panel lateral
-const resetFilters = () => {
-    document.getElementById('brightness').value = 1;
-    document.getElementById('opacity').value = 1;
-    document.getElementById('contrast').value = 100;
-    document.getElementById('blur').value = 0;
-    document.getElementById('grayscale').value = 0;
-    document.getElementById('sepia').value = 0;
-    document.getElementById('hue').value = 0;
-    document.getElementById('saturate').value = 100;
-    document.getElementById('invert').value = 0;
-};
-
 // Función para aplicar filtros a la imagen
 const applyImageFilters = () => {
     const memeImageElement = document.getElementById('meme-image');
 
-    const brightness = document.getElementById('brightness').value;
-    const opacity = document.getElementById('opacity').value;
-    const contrast = document.getElementById('contrast').value;
-    const blur = document.getElementById('blur').value;
-    const grayscale = document.getElementById('grayscale').value;
-    const sepia = document.getElementById('sepia').value;
-    const hue = document.getElementById('hue').value;
-    const saturate = document.getElementById('saturate').value;
-    const invert = document.getElementById('invert').value;
+    const brightness = document.getElementById('brightness-slider').value;
+    const opacity = document.getElementById('opacity-slider').value;
+    const contrast = document.getElementById('contrast-slider').value;
+    const blur = document.getElementById('blur-slider').value;
+    const grayscale = document.getElementById('grayscale-slider').value;
+    const sepia = document.getElementById('sepia-slider').value;
+    const hue = document.getElementById('hue-slider').value;
+    const saturate = document.getElementById('saturate-slider').value;
+    const invert = document.getElementById('invert-slider').value;
+
+   
 
     memeImageElement.style.filter = `
-        brightness(${brightness})
-        opacity(${opacity})
-        contrast(${contrast}%)
-        blur(${blur}px)
-        grayscale(${grayscale}%)
-        sepia(${sepia}%)
-        hue-rotate(${hue}deg)
-        saturate(${saturate}%)
-        invert(${invert})
-    `;
+    brightness(${brightness})
+    opacity(${opacity})
+    contrast(${contrast}%)
+    blur(${blur}px)
+    grayscale(${grayscale}%)
+    sepia(${sepia}%)
+    hue-rotate(${hue}deg)
+    saturate(${saturate}%)
+    invert(${invert})
+    `
 };
 
-// Función para restablecer los filtros de la imagen
+
+
+//Función para restablecer los filtros en el panel lateral
+const resetFilters = () => {
+    document.getElementById('brightness-slider').value = 1;
+    document.getElementById('opacity-slider').value = 1;
+    document.getElementById('contrast-slider').value = 100;
+    document.getElementById('blur-slider').value = 0;
+    document.getElementById('grayscale-slider').value = 0;
+    document.getElementById('sepia-slider').value = 0;
+    document.getElementById('hue-slider').value = 0;
+    document.getElementById('saturate-slider').value = 100;
+    document.getElementById('invert-slider').value = 0;
+};
+
+//Función para restablecer los filtros de la imagen
 const resetImageFilters = () => {
-    const memeImageElement = document.getElementById('meme-image');
+const memeImageElement = document.getElementById('meme-imagen');
 
     memeImageElement.style.filter = 'none'; 
-
-    // También puedes restablecer los valores de los controles deslizantes aquí si es necesario
-};  */
-
+    
+}; 
 
 
 
@@ -139,16 +147,16 @@ document.getElementById('panel-close-button').addEventListener('click',closePane
 document.getElementById('url-img-input').addEventListener('change', loadImageFromUrl);
 document.getElementById('top-text-input').addEventListener('input', updateTopText);
 document.getElementById('bottom-text-input').addEventListener('input', updateBottomText);
-// document.getElementById('download-btn').addEventListener('click', downloadMeme);
-
-
-/*document.getElementById('reset-btn').addEventListener('click', resetFilters);
-document.getElementById('image-upload').addEventListener('change', handleImageUpload);  
-document.getElementById('apply-filters-btn').addEventListener('click', applyImageFilters);
-document.getElementById('reset-filters-btn').addEventListener('click', resetImageFilters);
-
-document.getElementById('panel-close-button').addEventListener('click', hiddePanel );
-document.getElementById('panel-open-button').addEventListener('click', showPanel );*/
+document.getElementById('default-filters-button').addEventListener('click', resetFilters);
+document.getElementById('brightness-slider').addEventListener('input', applyImageFilters);
+document.getElementById('opacity-slider').addEventListener('input', applyImageFilters);
+document.getElementById('contrast-slider').addEventListener('input', applyImageFilters);
+document.getElementById('blur-slider').addEventListener('input', applyImageFilters);
+document.getElementById('grayscale-slider').addEventListener('input', applyImageFilters);
+document.getElementById('sepia-slider').addEventListener('input', applyImageFilters);
+document.getElementById('hue-slider').addEventListener('input', applyImageFilters);
+document.getElementById('saturate-slider').addEventListener('input', applyImageFilters);
+document.getElementById('invert-slider').addEventListener('input', applyImageFilters);
 
 
 

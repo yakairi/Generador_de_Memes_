@@ -211,7 +211,7 @@ body.dark-theme {
     height: 100%; 
     background-color:var(--color-background);
     padding: 20px;
-    transition: right 0.3s ease; /* Transición suave al abrir/cerrar */
+    transition: right 0.3s ease; /* Transición suave al abrir/cerrar */ 
     z-index: 9999; /* Asegura que el aside esté sobre otros elementos */
     overflow-y: auto; /* Agrega barra de desplazamiento vertical si el contenido es demasiado largo */
 }
@@ -284,7 +284,7 @@ body.dark-theme {
     background: none;
     border: none;
     cursor: pointer;
-    color: #666;
+    color: #666; 
 }
 
 /* Estilos para el botón de apertura del aside */
@@ -296,8 +296,8 @@ body.dark-theme {
     background: none;
     border: none;
     cursor: pointer;
-    color: #666;
-    z-index: 9999;
+    color: #666; 
+
 }
 
 
