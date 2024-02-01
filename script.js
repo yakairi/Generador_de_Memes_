@@ -189,6 +189,42 @@ const applyFontSize = () => {
 applyFontStyle();
 applyFontSize();
 
+// // Función para alinear el texto a la izquierda
+// const alignTextLeft = () => {
+//     document.querySelectorAll('.meme-text').forEach(textElement => {
+//         textElement.style.textAlign = 'left';
+//     });
+// };
+
+// // Función para alinear el texto al centro
+// const alignTextCenter = () => {
+//     document.querySelectorAll('.meme-text').forEach(textElement => {
+//         textElement.style.textAlign = 'center';
+//     });
+// };
+
+// // Función para alinear el texto a la derecha
+// const alignTextRight = () => {
+//     document.querySelectorAll('.meme-text').forEach(textElement => {
+//         textElement.style.textAlign = 'right';
+//     });
+// };
+
+// Funciones para alinear texto a la izquierda, al centro y a la derecha
+const alignTextLeft = () => {
+    topText.style.textAlign = 'left';
+    bottomText.style.textAlign = 'left';
+};
+
+const alignTextCenter = () => {
+    topText.style.textAlign = 'center';
+    bottomText.style.textAlign = 'center';
+};
+
+const alignTextRight = () => {
+    topText.style.textAlign = 'right';
+    bottomText.style.textAlign = 'right';
+};
 
 
 
@@ -221,6 +257,9 @@ document.getElementById('blend-mode-color-input').addEventListener('input', appl
 document.getElementById('blend-mode-select').addEventListener('change', applyBackground);
 document.getElementById('text-font-select').addEventListener('change', applyFontStyle);
 document.getElementById('text-size-input').addEventListener('input', applyFontSize);
+document.getElementById('text-left-align-button').addEventListener('click', alignTextLeft);
+document.getElementById('text-center-align-button').addEventListener('click', alignTextCenter);
+document.getElementById('text-right-align-button').addEventListener('click', alignTextRight);
 
 
 
