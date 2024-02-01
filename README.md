@@ -6,7 +6,7 @@ El generador de memes es una aplicación donde los usuarios pueden crear sus mem
 
 es una aplicación donde el usuario puede subir una imagen por URL, modificar su estilo a través de filtros y agregarle texto en la parte superior e inferior, algunos detalles de escritura interlineado, fondo, tamaño de letras y otros detalles, puede descarlo en formato .png.
 
-Las herramientas utilizadas:
+-**Las herramientas utilizadas:**
 [![My Skills](https://skillicons.dev/icons?i=js,html,css)](https://skillicons.dev)
 ## Detalles importantes
 
