@@ -157,7 +157,7 @@ const memeImageElement = document.getElementById('meme-imagen');
     memeImageElement.style.filter = 'none'; 
     
 }; 
-// aplicar fondo a la imagen
+// funcion para aplicar mezcla de color atraves del fondo
 const applyBackground = () => {
     const memeImageElement = document.getElementById('meme-image');
     const blendModeColorInput = document.getElementById('blend-mode-color-input');
@@ -170,12 +170,31 @@ const applyBackground = () => {
     memeImageElement.style.mixBlendMode = blendMode;
 };
 
+// Función para aplicar el estilo de fuente seleccionado
+const applyFontStyle = () => {
+    const selectedFont = document.getElementById('text-font-select').value;
+    document.querySelectorAll('.meme-text').forEach(textElement => {
+        textElement.style.fontFamily = selectedFont;
+    });
+};
+
+// Función para aplicar el tamaño de fuente seleccionado
+const applyFontSize = () => {
+    const selectedSize = document.getElementById('text-size-input').value;
+    document.querySelectorAll('.meme-text').forEach(textElement => {
+        textElement.style.fontSize = `${selectedSize}px`;
+    });
+};
+// Aplicar estilos de fuente y tamaño iniciales
+applyFontStyle();
+applyFontSize();
 
 
 
 
 
-// Asigna las funciones a los eventos correspondientes
+
+// Asigna de las funciones a los eventos correspondientes.
 document.getElementById('theme-toggle-button').addEventListener('click', toggleTheme);
 document.getElementById('download-btn').addEventListener('click', downloadMeme);
 document.getElementById('image-panel-button').addEventListener('click', togglePanel); 
@@ -200,6 +219,8 @@ document.getElementById('saturate-slider').addEventListener('input', applyImageF
 document.getElementById('invert-slider').addEventListener('input', applyImageFilters);
 document.getElementById('blend-mode-color-input').addEventListener('input', applyBackground);
 document.getElementById('blend-mode-select').addEventListener('change', applyBackground);
+document.getElementById('text-font-select').addEventListener('change', applyFontStyle);
+document.getElementById('text-size-input').addEventListener('input', applyFontSize);
 
 
 
