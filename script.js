@@ -206,8 +206,50 @@ const alignTextRight = () => {
     bottomText.style.textAlign = 'right';
 };
 
+// Función para manejar el fondo transparente
+const handleTransparentBackground = () => {
+    const textBackgroundColorInput = document.getElementById('text-background-color-input');
+    const textNoBackgroundCheckbox = document.getElementById('text-no-background-checkbox');
 
+    if (textNoBackgroundCheckbox.checked) {
+        textBackgroundColorInput.disabled = true;
+    } else {
+        textBackgroundColorInput.disabled = false;
+    }
+};
 
+// Función para manejar el contorno de texto
+const handleTextOutline = (event) => {
+    const contMeme = document.getElementById('contMeme');
+
+    if (event.target.id === 'no-outline-button') {
+        contMeme.style.textShadow = 'none';
+    } else if (event.target.id === 'light-outline-button') {
+        contMeme.style.textShadow = '1px 1px 1px #000';
+    } else if (event.target.id === 'dark-outline-button') {
+        contMeme.style.textShadow = '1px 1px 1px #FFF';
+    }
+};
+
+// Función para manejar el espaciado de texto
+const handleTextPadding = () => {
+    const paddingInput = document.getElementById('padding-input');
+    const topText = document.getElementById('top-text');
+    const bottomText = document.getElementById('bottom-text');
+
+    topText.style.padding = `${paddingInput.value}px`;
+    bottomText.style.padding = `${paddingInput.value}px`;
+};
+
+// Función para manejar el interlineado de texto
+const handleLineHeight = () => {
+    const lineHeightInput = document.getElementById('line-height-input');
+    const topText = document.getElementById('top-text');
+    const bottomText = document.getElementById('bottom-text');
+
+    topText.style.lineHeight = lineHeightInput.value;
+    bottomText.style.lineHeight = lineHeightInput.value;
+};
 
 
 // Asigna de las funciones a los eventos correspondientes.
@@ -240,6 +282,14 @@ document.getElementById('text-size-input').addEventListener('input', applyFontSi
 document.getElementById('text-left-align-button').addEventListener('click', alignTextLeft);
 document.getElementById('text-center-align-button').addEventListener('click', alignTextCenter);
 document.getElementById('text-right-align-button').addEventListener('click', alignTextRight);
+document.getElementById('text-no-background-checkbox').addEventListener('click', handleTransparentBackground);
+document.getElementById('no-outline-button').addEventListener('click', handleTextOutline);
+document.getElementById('light-outline-button').addEventListener('click', handleTextOutline);
+document.getElementById('dark-outline-button').addEventListener('click', handleTextOutline);
+document.getElementById('padding-input').addEventListener('input', handleTextPadding);
+document.getElementById('line-height-input').addEventListener('change', handleLineHeight);
+
+
 
 
 
