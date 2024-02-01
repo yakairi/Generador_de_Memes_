@@ -38,20 +38,7 @@ const closePanel = () => {
     const panel = document.getElementById('panel');
     panel.classList.remove('open');
 }; 
-
-const downloadMeme = () => {
-    const memeImage = document.getElementById('meme-image');
-    const memeUrl = memeImage.src; // Obtener la URL de la imagen del meme
-
-    // Crear un enlace <a> temporal
-    const link = document.createElement('a');
-    link.href = memeUrl;
-    link.download = 'meme.png'; // Nombre del archivo a descargar
-
-    // Simular clic en el enlace para iniciar la descarga
-    link.click();
-};  
-
+ 
 
 // Función para cargar una imagen desde una URL
 const loadImageFromUrl = () => {
@@ -71,25 +58,25 @@ const updateBottomText = () => {
     document.getElementById('bottom-text').innerText = bottomText;
 };
 
+// Función para descargar  memes
+const downloadMeme = () => {
+    // Obtener el canvas del meme por su ID
+    const memes = document.getElementById('meme-text-image');
 
-/*//función para manejar la carga de la imagen
-const handleImageUpload = () => {
-    const inputElement = document.getElementById('image-upload');
-    const memeImageElement = document.getElementById('meme-image');
-
-    const file = inputElement.files[0];
-
-    if (file) {
-        const reader = new FileReader();
-
-        reader.onload = (e) => {
-            memeImageElement.style.backgroundImage = `url(${e.target.result})`;
-        };
-
-        reader.readAsDataURL(file);
-    }
+    // Convertir el memes a un blob usando Dom-to-Image
+    domtoimage.toBlob(memes)
+        .then(function(blob) {
+            // Guardar el blob como un archivo PNG usando FileSaver.js
+            saveAs(blob, 'mi-meme.png');
+        })
+        .catch(function(error) {
+            // Manejar cualquier error que pueda ocurrir
+            console.error('Error al descargar el meme:', error);
+        });
 };
-//Función para restablecer los filtros en el panel lateral
+
+
+/*/Función para restablecer los filtros en el panel lateral
 const resetFilters = () => {
     document.getElementById('brightness').value = 1;
     document.getElementById('opacity').value = 1;
@@ -152,6 +139,8 @@ document.getElementById('panel-close-button').addEventListener('click',closePane
 document.getElementById('url-img-input').addEventListener('change', loadImageFromUrl);
 document.getElementById('top-text-input').addEventListener('input', updateTopText);
 document.getElementById('bottom-text-input').addEventListener('input', updateBottomText);
+// document.getElementById('download-btn').addEventListener('click', downloadMeme);
+
 
 /*document.getElementById('reset-btn').addEventListener('click', resetFilters);
 document.getElementById('image-upload').addEventListener('change', handleImageUpload);  
@@ -161,8 +150,6 @@ document.getElementById('reset-filters-btn').addEventListener('click', resetImag
 document.getElementById('panel-close-button').addEventListener('click', hiddePanel );
 document.getElementById('panel-open-button').addEventListener('click', showPanel );*/
 
-document.getElementById('url-img-input').addEventListener('change', loadImageFromUrl);
-document.getElementById('top-text-input').addEventListener('input', updateTopText);
-document.getElementById('bottom-text-input').addEventListener('input', updateBottomText);
+
 
 

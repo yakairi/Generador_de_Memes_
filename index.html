@@ -6,6 +6,9 @@
     <title>Generador de Memes</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/45fa939a1d.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
 </head>
 <body>
     <!-- Header -->
@@ -29,7 +32,7 @@
     <!-- Meme secction -->
 
         <main class="meme-container">
-            <div class="meme-text-image">
+            <div class="meme-text-image" id="meme-text-image">
                 <p  class="meme-text top-text" id="top-text">TOP TEXT</p>
                 <div class="meme-image" id="meme-image"></div>
                 <p class="meme-text button-tex" id="bottom-text">BOTTOM TEXT</p>
