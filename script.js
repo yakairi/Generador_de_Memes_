@@ -189,26 +189,6 @@ const applyFontSize = () => {
 applyFontStyle();
 applyFontSize();
 
-// // Función para alinear el texto a la izquierda
-// const alignTextLeft = () => {
-//     document.querySelectorAll('.meme-text').forEach(textElement => {
-//         textElement.style.textAlign = 'left';
-//     });
-// };
-
-// // Función para alinear el texto al centro
-// const alignTextCenter = () => {
-//     document.querySelectorAll('.meme-text').forEach(textElement => {
-//         textElement.style.textAlign = 'center';
-//     });
-// };
-
-// // Función para alinear el texto a la derecha
-// const alignTextRight = () => {
-//     document.querySelectorAll('.meme-text').forEach(textElement => {
-//         textElement.style.textAlign = 'right';
-//     });
-// };
 
 // Funciones para alinear texto a la izquierda, al centro y a la derecha
 const alignTextLeft = () => {
