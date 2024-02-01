@@ -42,8 +42,6 @@ const closePanel = () => {
 
 // Función para cargar una imagen desde una URL
 const loadImageFromUrl = () => {
-    // const imageUrl = document.getElementById('url-img-input').value;
-    // document.getElementById('meme-image').style.backgroundImage = `url('${imageUrl}')`;
     const imageUrl = document.getElementById('url-img-input').value;
     const memeImageElement = document.getElementById('meme-image');
 
@@ -59,11 +57,37 @@ const updateTopText = () => {
     document.getElementById('top-text').innerText = topText;
 };
 
+const toggleTopText = () => {
+    const noTopTextCheckbox = document.getElementById('no-top-text-checkbox');
+    const topTextElement = document.getElementById('top-text');
+
+    if (noTopTextCheckbox.checked) {
+        topTextElement.style.display = 'none'; // Ocultar texto superior si el checkbox está marcado
+    } else {
+        topTextElement.style.display = 'block'; // Mostrar texto superior si el checkbox no está marcado
+    }
+};
+// Llama a la función para asegurarse de que el estado inicial del texto superior sea coherente con el estado inicial del checkbox
+toggleTopText();
+
+
 // Función para actualizar el texto inferior del meme
 const updateBottomText = () => {
     const bottomText = document.getElementById('bottom-text-input').value;
     document.getElementById('bottom-text').innerText = bottomText;
 };
+const toggleBottomText = () => {
+    const noBottomTextCheckbox = document.getElementById('no-bottom-text-checkbox');
+    const bottomTextElement = document.getElementById('bottom-text');
+
+    if (noBottomTextCheckbox.checked) {
+        bottomTextElement.style.display = 'none'; // Ocultar texto superior si el checkbox está marcado
+    } else {
+        bottomTextElement.style.display = 'block'; // Mostrar texto superior si el checkbox no está marcado
+    }
+};
+// Llama a la función para asegurarse de que el estado inicial del texto superior sea coherente con el estado inicial del checkbox
+toggleBottomText();
 
 // Función para descargar  memes
 const downloadMeme = () => {
@@ -133,6 +157,21 @@ const memeImageElement = document.getElementById('meme-imagen');
     memeImageElement.style.filter = 'none'; 
     
 }; 
+// aplicar fondo a la imagen
+const applyBackground = () => {
+    const memeImageElement = document.getElementById('meme-image');
+    const blendModeColorInput = document.getElementById('blend-mode-color-input');
+    const blendModeSelect = document.getElementById('blend-mode-select');
+
+    const blendMode = blendModeSelect.value;
+    const blendColor = blendModeColorInput.value;
+
+    memeImageElement.style.backgroundColor = blendColor;
+    memeImageElement.style.mixBlendMode = blendMode;
+};
+
+
+
 
 
 
@@ -146,7 +185,9 @@ document.getElementById('text-panel-button').addEventListener('click', showPanel
 document.getElementById('panel-close-button').addEventListener('click',closePanel);
 document.getElementById('url-img-input').addEventListener('change', loadImageFromUrl);
 document.getElementById('top-text-input').addEventListener('input', updateTopText);
+document.getElementById('no-top-text-checkbox').addEventListener('change', toggleTopText);
 document.getElementById('bottom-text-input').addEventListener('input', updateBottomText);
+document.getElementById('no-bottom-text-checkbox').addEventListener('change', toggleBottomText);
 document.getElementById('default-filters-button').addEventListener('click', resetFilters);
 document.getElementById('brightness-slider').addEventListener('input', applyImageFilters);
 document.getElementById('opacity-slider').addEventListener('input', applyImageFilters);
@@ -157,6 +198,8 @@ document.getElementById('sepia-slider').addEventListener('input', applyImageFilt
 document.getElementById('hue-slider').addEventListener('input', applyImageFilters);
 document.getElementById('saturate-slider').addEventListener('input', applyImageFilters);
 document.getElementById('invert-slider').addEventListener('input', applyImageFilters);
+document.getElementById('blend-mode-color-input').addEventListener('input', applyBackground);
+document.getElementById('blend-mode-select').addEventListener('change', applyBackground);
 
 
 
