@@ -13,17 +13,17 @@
 <body>
     <!-- Header -->
     <header class="app-header">
-        <h1 class="app-title">Generador de Memes</h1>
+        <h1 class="app-title" tabindex="1">Generador de Memes</h1>
         <div class="button-container">
-            <button class="button button-image" id="image-panel-button">
+            <button class="button button-image" id="image-panel-button" tabindex="2">
                 <i class="fas fa-file-image " aria-hidden="true"></i>
                 Imagen 
             </button>
-            <button class="button button-text" id="text-panel-button">
+            <button class="button button-text" id="text-panel-button" tabindex="3">
                 <i class="fas fa-font button-icon" aria-hidden="true"></i>
                 Texto
             </button>
-            <button class="button button-theme" id="theme-toggle-button" aria-label="Cambiar tema">
+            <button class="button button-theme" id="theme-toggle-button" aria-label="Cambiar tema" tabindex="4">
                 <i class="fa-solid fa-circle-half-stroke button-icon" aria-hidden="true"></i>
                 Modo claro
             </button>
@@ -32,12 +32,12 @@
     <!-- Meme secction -->
 
         <main class="meme-container">
-            <div class="meme-text-image" id="meme-text-image">
+            <div class="meme-text-image" id="meme-text-image" tabindex="5" aria-label="contiene el meme ">
                 <p  class="meme-text top-text" id="top-text">TOP TEXT</p>
                 <div class="meme-image" id="meme-image"></div>
                 <p class="meme-text button-tex" id="bottom-text">BOTTOM TEXT</p>
             </div>
-            <button  type="button"  class="button button-download" id="download-btn">
+            <button  type="button"  class="button button-download" id="download-btn" tabindex="6" aria-label="descarga meme">
                 <i class="fas fa-download button-icon" aria-hidden="true"></i>
                 Descagar meme
             </button>
@@ -60,7 +60,7 @@
                     <h3 class="panel-control-title">FONDO</h3>
                     <input aria-label="Color de fondo de imagen" type="color" id="blend-mode-color-input" value="#FFFFFF">
                     <span id="blend-mode-color"></span>
-                    <select aria-label="Modo de mezcla de fondo de imagen" id="blend-mode-select" class="panel-control-input">
+                    <select aria-label="fondo de imagen" id="blend-mode-select" class="panel-control-input">
                     <option value="unset">Ninguno</option>
                     <option value="lighten">Aclarar</option>
                     <option value="darken">Oscurecer</option>
