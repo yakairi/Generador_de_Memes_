@@ -4,7 +4,7 @@ El generador de memes es una aplicación donde los usuarios pueden crear sus mem
 
 ## Descripción
 
-es una aplicación donde el usuario puede subir una imagen por URL, modificar su estilo a través de filtros y agregarle texto en la parte superior e inferior, algunos detalle de escritura interlineado, fondo, tamaño de letra y otros detalles, puede descarlo en formato .png.
+es una aplicación donde el usuario puede subir una imagen por URL, modificar su estilo a través de filtros y agregarle texto en la parte superior e inferior, algunos detalles de escritura interlineado, fondo, tamaño de letras y otros detalles, puede descarlo en formato .png.
 
 Las herramientas utilizadas:
 - HTML <i class="fab fa-html5"></i>
